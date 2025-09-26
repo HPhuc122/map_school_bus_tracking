@@ -15,7 +15,7 @@ Giúp nhà trường, phụ huynh và tài xế theo dõi hành trình, lịch t
 ## 🛠 Công nghệ sử dụng
 - **Frontend**: React + Vite  
 - **Backend**: Node.js + Express + Socket.io  
-- **Database**: MongoDB / PostgreSQL (tuỳ chọn)  
+- **Database**: MySQL  
 - **Triển khai**: Docker / Docker Compose  
 
 ---
