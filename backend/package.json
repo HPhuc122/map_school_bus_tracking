@@ -1,0 +1,28 @@
+{
+    "name": "smart-school-bus-tracking",
+    "version": "1.0.0",
+    "description": "Hệ thống quản lý & giám sát xe đưa đón học sinh theo thời gian thực.   Giúp nhà trường, phụ huynh và tài xế theo dõi hành trình, lịch trình và an toàn của học sinh.",
+    "main": "index.js",
+    "type": "module",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "dev": "nodemon src/server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mysql2": "^3.15.2",
+        "sequelize": "^6.37.7"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
