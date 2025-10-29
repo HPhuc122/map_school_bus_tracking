@@ -180,14 +180,29 @@ const ParentDashboard: React.FC = () => {
         id: currentStudentRaw.ma_hs,
         name: currentStudentRaw.ho_ten,
         grade: currentStudentRaw.lop || "",
-        busNumber: currentStudentRaw.bien_so || (busLocation && busLocation.bien_so) || "---",
-        driverName: busLocation?.driverName || (currentStudentRaw as any).tai_xe || "N/A",
-        driverPhone: busLocation?.driverPhone || (currentStudentRaw as any).so_dien_thoai || "0123456789",
-        pickupStop: currentStudentRaw.ten_diem_don || "Chưa có",
-        dropoffStop: currentStudentRaw.ten_diem_tra || "Chưa có",
-        pickupTime: (scheduleData[0]?.gio_bat_dau) || "07:15",
-        dropoffTime: (scheduleData[0]?.gio_ket_thuc) || "16:30",
-        status: mapStatus(currentStudentRaw.trang_thai),
+        busNumber: currentStudentRaw.bien_so || "---",
+        driverName: currentStudentRaw.tai_xe || "N/A",
+        driverPhone: currentStudentRaw.sdt_tai_xe || "N/A",
+
+        // ✅ Sửa chính xác để lấy đúng dữ liệu backend trả về
+        pickupStop:
+          (currentStudentRaw as any).diem_don ||
+          (currentStudentRaw as any).ten_diem_don ||
+          "Chưa có",
+        dropoffStop:
+          (currentStudentRaw as any).diem_tra ||
+          (currentStudentRaw as any).ten_diem_tra ||
+          "Chưa có",
+        pickupTime:
+          (currentStudentRaw as any).gio_don ||
+          (currentStudentRaw as any).gio_bat_dau ||
+          "07:15",
+        dropoffTime:
+          (currentStudentRaw as any).gio_tra ||
+          (currentStudentRaw as any).gio_ket_thuc ||
+          "16:30",
+
+        status: mapStatus((currentStudentRaw as any).trang_thai_lich),
       }
     : {
         id: 0,
@@ -196,8 +211,8 @@ const ParentDashboard: React.FC = () => {
         busNumber: "---",
         driverName: "---",
         driverPhone: "N/A",
-        pickupStop: "---",
-        dropoffStop: "---",
+        pickupStop: "Chưa có",
+        dropoffStop: "Chưa có",
         pickupTime: "--:--",
         dropoffTime: "--:--",
         status: "at_home",
